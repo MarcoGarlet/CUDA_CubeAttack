@@ -83,7 +83,7 @@ The following parameters must be defined according to cipher's specification:
 * *K_dim*
 * *IV_dim*
 
-## Cube and superpolies verification
+## Cubes and superpolies verification
 
 Checking literature results for cubes and superpolies. Write the candidate *maxterm* in *maxterm.txt* in *offline* subdirectory (indexing start from 0).
 
