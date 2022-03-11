@@ -4,7 +4,7 @@
 
 ## Overview
 
-**CUDA_CubeAttack** aims to offer a flexible implementation of cube attack exploiting CUDA framework.
+**CUDA_CubeAttack** aims to offer a flexible implementation of cube attack exploiting CUDA framework (sm_50).
 
 ## Break one of the ciphers in ./final_attack/ciphers_lib
 
@@ -73,6 +73,31 @@ Check results using *validator.py*:
 
 ## Attack a different cipher
 
+To integrate new cipher's code in **cipher.cu** in order to attack new cipher function, the following function has to be implemented:
+* *encrypt*: receive two byte arrays (public/private information), return a bit according to *BIT_POSITION_APP* and *BIT_POSITION*
+* *encrypt_exploit*: receive only public key as parameter (the private key is in constant memory *d_key_2_guess*)
+
+Then implement the corresponding host functions(*encrypt_host*, *encrypt_exploit_host*).
+
+The following parameters must be defined according to cipher's specification:
+* *K_dim*
+* *IV_dim*
+
+## Cube and superpolies verification
+
+Checking literature results for cubes and superpolies. Write the candidate *maxterm* in *maxterm.txt* in *offline* subdirectory (indexing start from 0).
+
+Select one of the ordering in **cipher.cu**, call **./final_attack/offline/superpoly_rec/att1** and check in *superpolies_window.txt* the superpolies obtained.
+
+The right ordering will generate the same published superpolies.
+
+## Use different maxterm version
+
+From **launch_attack.sh** you can select one of the following *maxterm mining* versions:
+
+* version 5: trivial parallelized version without huge cube support 
+* version 6: proposed parallelized version without huge cube support
+* version 7: trivial parallelized version with arbitrary huge cube support 
 
 ## Results 
 
