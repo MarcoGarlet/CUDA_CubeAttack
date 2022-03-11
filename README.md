@@ -44,7 +44,7 @@ bin_assignment = reduce(lambda x,y:x+y,[('0'*(8-len(bin(c).split('b')[1]))+bin(c
 ...
 ```
 
-Set the proper *K_dim*.
+Remember to set the proper *K_dim*.
 
 
 ## Usage 
@@ -65,7 +65,7 @@ Then two files are produced:
 Where the line position links each *maxterm* with the corresponding *superpoly*.
 
 
-Check results using *validator.py":
+Check results using *validator.py*:
 
 <p align='left'>
 <img src='pics/validate.gif'>
@@ -74,6 +74,9 @@ Check results using *validator.py":
 ## Attack a different cipher
 
 
+## Results 
+
+Results against Trivium, Morus-640-128 and Grain-128AEAD are reported [here](/docs/MasterThesis.pdf).
 
 
 
