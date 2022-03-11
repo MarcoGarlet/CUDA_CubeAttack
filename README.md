@@ -85,7 +85,7 @@ The following parameters must be defined according to cipher's specification:
 
 ## Cubes and superpolies verification
 
-Checking literature results for cubes and superpolies. Write the candidate *maxterm* in *maxterm.txt* in *offline* subdirectory (indexing start from 0).
+Checking literature results for cubes and superpolies. Write the candidate *maxterm* in *cubes_test_window.txt* in *offline* subdirectory (indexing start from 0).
 
 Select one of the ordering in **cipher.cu**, call **./final_attack/offline/superpoly_rec/att1** and check in *superpolies_window.txt* the superpolies obtained.
 
