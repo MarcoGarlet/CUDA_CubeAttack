@@ -1,6 +1,6 @@
 # CUDA_CubeAttack
 
-
+[![DOI](https://zenodo.org/badge/468790973.svg)](https://zenodo.org/badge/latestdoi/468790973)
 
 ## Overview
 
