@@ -73,7 +73,7 @@ Check results using *validator.py*:
 
 ## Attack a different cipher
 
-To integrate new cipher's code in **cipher.cu** in order to attack new cipher function, the following function has to be implemented:
+To integrate new cipher's code in **cipher.cu**, the following functions has to be implemented:
 * *encrypt*: receive two byte arrays (public/private information), return a bit according to *BIT_POSITION_APP* and *BIT_POSITION*
 * *encrypt_exploit*: receive only public key as parameter (the private key is in constant memory *d_key_2_guess*)
 
