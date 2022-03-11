@@ -771,10 +771,10 @@ int main(int argc, char *argv[]){
 
 
 	/*kernel 4: random key generator*/
-	uint64_t del_1[INSTANCES],add_1[INSTANCES],ACTIVE_INSTANCES=INSTANCES,start=0,start_I=0,n1;
-	uint64_t del_1_counter=0,add_1_counter=0,sol_dim=0,sol_count=0,*sol_dim_arr=NULL;
+	uint64_t del_1[INSTANCES],ACTIVE_INSTANCES=INSTANCES,start=0,start_I=0,n1;
+	uint64_t del_1_counter=0,sol_dim=0,sol_count=0,*sol_dim_arr=NULL;
 	uint8_t k0[K_dim*sizeof(uint8_t)]={0x0},*k1_set_dev,*k2_set_dev,*k_xor_dev,*k1_set_host,*k2_set_host,*k_xor_host;
-	uint8_t *out_cube, *dev_reduce_out_n_supp,*dev_reduce_out_n_supp1,*reduce_out,**updated_cubes,*maxterms=NULL;
+	uint8_t *out_cube, *dev_reduce_out_n_supp,*dev_reduce_out_n_supp1,*reduce_out,*maxterms=NULL;
 	uint8_t *p1_set,*p2_set,*p1_2_set;
 	uint8_t *p1_set_dev,*p2_set_dev,*p1_2_set_dev;
 	uint8_t *dev_out_cube_n,*dev_out_cube_n1,*dev_out_cube_n2, *dev_reduce_out_n,*hreduce_out_n;
@@ -812,7 +812,7 @@ int main(int argc, char *argv[]){
 
 
 
-		start=0,start_I=0,del_1_counter=0,add_1_counter=0;
+		start=0,start_I=0,del_1_counter=0;
 		k_sum = sum_k(out_k_host,ACTIVE_INSTANCES);
 		data_len = 0;
 		/*
