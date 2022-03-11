@@ -1,3 +1,7 @@
+/*
+Code copied and modified using Ivan Mikhailov <sinhbad@yandex.ru> implementation.
+https://github.com/sinhbad/trivium/blob/master/encrypt.c
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -141,73 +145,11 @@ uint8_t encrypt_exploit_host(uint8_t *iv){
   change_bit_host(b, 286, 1);
   change_bit_host(b, 287, 1);
   change_bit_host(b, 288, 1);
-  //print_array(b, STATE_SIZE);
   initialize_state_host(b);
-  /*
-  for(int i=0;i<BIT_POSITION/8;i++)
-    get_byte_from_gamma_host(b);
-  return get_byte_from_gamma_host(b)&(1<<(BIT_POSITION%8));
-  */
+
    return (get_byte_from_gamma_host(b)&BIT_POSITION)>>BIT_POSITION_APP;
 }
-/*
-int main(int argc, char **argv)
-{
-  uint8_t key[10];
-  uint8_t iv[10];
-  uint8_t b[STATE_SIZE];
-  uint8_t buffer;
-  uint8_t encbuffer;
-  FILE * pFile;
-  FILE * outFile;
-  uint8_t i;
-  srand(time(NULL));
-  for(i = 0; i < STATE_SIZE; i++) b[i] = 0;
-  for(i = 0; i < 10; i++)
-  {
-    key[i] = 0;
-    iv[i] = get_random_byte();
-  }
-  
-  printf("Trivium (encryption) by sinhbad. January, 2017.\n");
-  printf("Using: trivium.exe input.file output.file\n");
-  if (argc != 3)
-  {
-    printf("Bad input data in argv\n");
-    return 0;
-  }
-  pFile = fopen(argv[1] , "rb");
-  outFile = fopen(argv[2], "wb");
-  if (pFile==NULL) {fputs ("Input file error",stderr); exit (1);}
-  if (outFile==NULL) {fputs ("Output file error",stderr); exit (1);}
-  for (i = 0; i < 10; i++)
-  {
-    fwrite(&iv[i], 1, 1, outFile);
-  }
-  
-  printf("Type key in hexadecimal format (80 bit):\n");
-  for (i = 0; i < 10; i++)
-  {
-    key[i] = get_byte_from_console_input();
-  }
-  
-  insert_bits(b, 1, key, 80);
-  insert_bits(b, 94, iv, 80);
-  change_bit(b, 286, 1);
-  change_bit(b, 287, 1);
-  change_bit(b, 288, 1);
-  print_array(b, STATE_SIZE);
-  initialize_state(b);
-  while(fread(&buffer, 1, 1, pFile) != 0)
-  {
-    encbuffer = buffer ^ get_byte_from_gamma(b);
-    fwrite(&encbuffer, 1, 1, outFile);
-  }
-  fclose(pFile);
-  fclose(outFile);
-  return 0;
-}
-*/
+
 
 
 __device__ void change_bit(uint8_t *arr, uint16_t n, uint8_t value)
